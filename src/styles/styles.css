@@ -1,0 +1,31 @@
+/* Styles */
+
+nav {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.nav{
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+a {
+    background: transparent;
+    color: black;
+    font-weight: bold;
+    /* background-color: #4289c7; */
+}
+a:hover {
+    color: #292929;
+    background: #4289c7;
+}
+a.active {
+    /* color: #fff; */
+    color: #ffffff;
+    background: #23527c;
+}
+a.active:hover {
+    color: #ffffff;
+    background-color: #3d73a8 !important;
+}
