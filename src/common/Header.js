@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
+import LoadingDots from './LoadingDots';
 
 class Header extends Component {
     render() {
@@ -17,6 +18,7 @@ class Header extends Component {
                     </li>
                 </ul>
                 <h3 className="text-muted">My App</h3>
+                <LoadingDots interval={100} dots={20} />
             </nav>
         );
     }
