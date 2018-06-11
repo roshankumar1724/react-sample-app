@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
-import { bindActionCreators } from 'redux';
 
 import * as courseActions from '../../actions/courseActions';
-import CourseList from './CourseList'
+import { PropTypes } from "prop-types";
+import { bindActionCreators } from 'redux';
 
 class CoursesPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            course: {
+                title: ""
+            }
+        };
+    }
+
+    onTitleChange = (event) => {
+        const tempCourse = this.state.course;
+        tempCourse.title = event.target.value;
+        this.setState({
+            course: tempCourse
+        });
+    }
+
+    onClickSave = () => {
+        // alert(`Saving : ${this.state.course.title}`);
+
+        // If mapDispatchToProps is not defined then we need to use it in this way.
+        // this.props.dispatch(courseActions.createCourse(this.state.course));
+
+        // this.props.createCourseList(this.state.course);
+
+        this.props.actions.createCourse(this.state.course);
     }
 
     courseRow = (course, index) => {
@@ -19,22 +42,14 @@ class CoursesPage extends Component {
         );
     }
 
-    redirectToAddCoursePage = () => {
-        this.props.history.push('/course');
-    }
-
     render() {
-        const { courses } = this.props;
         return (
             <div className="jumbotron">
                 <h1> COURSES PAGE </h1>
-                <input
-                    type="submit"
-                    value="Add Course"
-                    className="btn btn-primary"
-                    onClick={this.redirectToAddCoursePage}
-                />
-                <CourseList courses={courses} />
+                {this.props.courses.map(this.courseRow)}
+                <h2> Add Course </h2>
+                <input type="text" onChange={this.onTitleChange} value={this.state.course.title} />
+                <input type="submit" value="Save" onClick={this.onClickSave} />
             </div>
         );
     }

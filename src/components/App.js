@@ -35,8 +35,6 @@ import CoursesPage from './courses/CoursesPage';
 import AboutPage from './about/AboutPage';
 import ErrorPage from "./error/ErrorPage";
 import Header from '../common/Header';
-import CourseList from './courses/CourseList';
-import ManageCoursePage from './courses/ManageCoursePage';
 
 class App extends Component {
   render() {
@@ -51,8 +49,6 @@ class App extends Component {
             <Route path="/home" component={HomePage}></Route>
             <Route path="/about" component={AboutPage}></Route>
             <Route path="/courses" component={CoursesPage}></Route>
-            <Route exact path="/course" component={ManageCoursePage}></Route>
-            <Route exact path="/course/:id" component={ManageCoursePage}></Route>
             <Route component={ErrorPage}></Route>
           </Switch>
         </div>
