@@ -9,13 +9,7 @@ import './styles/styles.css';
 import App from './components/App';
 
 
-import { loadCourses } from "./actions/courseActions";
-import { loadAuthors } from "./actions/authorActions";
-
 const store = configureStore();
-// OnInit methods to call thunks 
-store.dispatch(loadCourses());
-store.dispatch(loadAuthors());
 
 ReactDOM.render(
     <Provider store={store}>
